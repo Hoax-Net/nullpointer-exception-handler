@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Check JavaScript syntax
+        run: npm run check
+
+      - name: Run tests
+        run: npm test
+
+      - name: Verify no Discord token pattern is committed
+        shell: bash
+        run: |
+          if git grep -IEn '[A-Za-z0-9_-]{20,30}\.[A-Za-z0-9_-]{5,10}\.[A-Za-z0-9_-]{30,}' -- ':!README.md'; then
+            echo "A token-like value was found. Rotate it and remove it from history."
+            exit 1
+          fi
+

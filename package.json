@@ -1,0 +1,22 @@
+{
+  "name": "nullpointer-exception-handler",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hack Theory's privacy-conscious cybersecurity quiz bot for Discord.",
+  "type": "module",
+  "scripts": {
+    "check": "node --check src/index.js && node --check src/coordinator.js && node --check src/questions.js && node --check src/discord.js && node --check scripts/register-commands.mjs",
+    "test": "node --test",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "commands:register": "node scripts/register-commands.mjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy",
+    "tail": "npx wrangler tail"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "wrangler": "^4.30.0"
+  }
+}

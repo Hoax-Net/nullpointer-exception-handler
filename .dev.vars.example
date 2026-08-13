@@ -1,0 +1,4 @@
+# Copy this file to .dev.vars for local development.
+# Never commit .dev.vars or paste the token into source code.
+DISCORD_TOKEN=replace_with_a_fresh_rotated_bot_token
+
