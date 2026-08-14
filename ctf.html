@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+    <meta name="description" content="Two live per-member Hack Theory capture-the-flag challenges.">
+    <meta name="theme-color" content="#070912">
+    <title>Capture the Flag — Hack Theory</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="mark">HT</span><span>Hack Theory CTF</span></a><div class="nav-links"><a href="courses.html">Courses</a><a href="tools.html">Tools</a><a href="security-guide.html">Security Guide</a><a href="bot.html">Bot</a><a class="button" href="https://discord.gg/hack-theory-1138548626491199519">Join Hack Theory</a></div></nav></header>
+    <main id="main" class="prose wide-prose">
+      <img class="page-banner" src="assets/ctf-banner.png" alt="Capture the Flag banner with a digital maze leading to a glowing flag">
+      <p class="eyebrow">ctf@hack-theory:~$ ./start</p>
+      <h1>Evidence first. Flags second.</h1>
+      <p class="lede">Both live challenges run through private Discord interactions. Each launch randomizes evidence, expires after 45 minutes, limits guesses, and signs the final flag to the member and session.</p>
+      <div class="tool-grid">
+        <article class="card"><span class="tag">BLUE TEAM</span><h2>Log Hunt: Password Spray</h2><p>Analyze condensed authentication telemetry, distinguish normal success from broad low-frequency failures, and identify the suspicious source.</p><p><code>/ctf-start challenge:Log Hunt</code></p></article>
+        <article class="card"><span class="tag">WEB DEFENSE</span><h2>Session Cookie</h2><p>Review a randomized session-cookie header and identify the missing control that addresses the stated threat.</p><p><code>/ctf-start challenge:Web Defense</code></p></article>
+      </div>
+      <h2>Workflow</h2><ol><li>Run <code>/ctf-start</code> and choose a challenge.</li><li>Reason from the evidence. Do not probe any external system.</li><li>Submit with <code>/ctf-submit</code>. You have five attempts and 45 minutes.</li><li>On success, keep your dynamic <code>HT{...}</code> flag. Another member's flag will not validate as yours.</li><li>Use <code>/ctf-stats</code> to view unique solves.</li></ol>
+      <div class="notice"><strong>Fair play:</strong> discuss methods and detection logic, not exact answers or flags. The point is repeatable reasoning, not secret hoarding.</div>
+    </main>
+    <footer class="site-footer"><div class="footer-inner"><span>© <span data-current-year>2026</span> Hack Theory</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="index.html">Home</a></div></div></footer>
+  </body>
+</html>
+

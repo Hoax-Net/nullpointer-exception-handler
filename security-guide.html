@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+    <meta name="description" content="A step-by-step Discord community security, detection, and mitigation guide.">
+    <meta name="theme-color" content="#070912">
+    <title>Discord Security Guide — Hack Theory</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="mark">HT</span><span>Hack Theory</span></a><div class="nav-links"><a href="courses.html">Courses</a><a href="tools.html">Tools</a><a href="ctf.html">CTF</a><a href="bot.html">Bot</a><a class="button" href="https://discord.gg/hack-theory-1138548626491199519">Join Hack Theory</a></div></nav></header>
+    <main id="main" class="prose wide-prose">
+      <p class="eyebrow">/var/run/community-defense</p>
+      <h1>Discord attack detection and response.</h1>
+      <p class="lede">A practical playbook for members and staff. Preserve evidence, reduce harm, and avoid turning uncertain signals into public accusations.</p>
+
+      <section class="course-card"><h2>1. Suspicious links and downloads</h2><h3>Detect</h3><ul><li>Unexpected login, Nitro, job, crypto, or “test my game” requests.</li><li>Punycode lookalikes, shortened links, HTTP-only destinations, embedded credentials, or executable/archive downloads.</li><li>A sender pressuring members to disable browser, antivirus, or Discord warnings.</li></ul><h3>Respond</h3><ol><li>Do not open the target. Copy the Discord message link and take a screenshot.</li><li>Run <code>/url-check</code>; remember that a clean DNS result is not proof of safety.</li><li>Use <code>/report-security</code> privately. Staff should remove confirmed malicious content and warn the sender without reposting the URL.</li><li>If opened, disconnect only if active compromise is suspected; preserve logs, rotate exposed credentials from a known-clean device, revoke sessions, scan, and notify staff.</li></ol></section>
+
+      <section class="course-card"><h2>2. Account takeover and token theft</h2><h3>Detect</h3><ul><li>New login alerts, unexpected authorized apps, disabled MFA, changed email, or unusual direct messages.</li><li>Messages sent while the member says they are offline, especially repeated links.</li></ul><h3>Mitigate</h3><ol><li>Reset the Discord password from a known-clean device; this invalidates the token.</li><li>Enable authenticator-based MFA and store recovery codes offline.</li><li>Review Devices, Authorized Apps, Connections, and browser extensions.</li><li>Staff temporarily restrict the account only when evidence supports it, document the reason, and provide a review path.</li></ol></section>
+
+      <section class="course-card"><h2>3. Invite spam, mass DMs, and raids</h2><h3>Detect</h3><ul><li>Repeated invites across channels, rapid unsolicited DMs, synchronized joins, or mention bursts.</li><li>New accounts that immediately request payments, credentials, downloads, or off-platform contact.</li></ul><h3>Mitigate</h3><ol><li>Use Discord raid protection, verification, mention-spam controls, and the invite AutoMod rule.</li><li>Members report suspicious DMs with screenshots; bots cannot inspect private member-to-member conversations.</li><li>Staff place evidence-backed cases in a restricted review queue, apply the least disruptive control, and time-box restrictions.</li><li>Afterward, review audit logs, revoke compromised webhooks/bots, rotate exposed secrets, and publish a factual update.</li></ol></section>
+
+      <section class="course-card"><h2>4. Malicious bots, webhooks, and permissions</h2><h3>Detect</h3><ul><li>Unexpected webhook creation, role changes, channel deletion, bot additions, or permission elevation.</li><li>Non-staff roles with Administrator, Manage Server, Manage Roles, Manage Channels, or Manage Webhooks.</li></ul><h3>Mitigate</h3><ol><li>Run <code>/security-audit</code> and review the private staff report.</li><li>Remove unnecessary high-impact permissions and keep bot permissions scoped.</li><li>Use separate human and integration roles; disable unused integrations before deleting evidence.</li><li>Export audit-log timestamps and document every remediation.</li></ol></section>
+
+      <section class="course-card"><h2>5. Recovery checklist</h2><pre><code class="language-text">[ ] preserve message links, screenshots, and audit timestamps
+[ ] identify affected accounts, roles, channels, bots, and webhooks
+[ ] contain with the least disruptive temporary control
+[ ] revoke sessions and rotate exposed credentials/secrets
+[ ] remove confirmed malicious content without reposting it
+[ ] validate recovery and monitor for recurrence
+[ ] publish a factual member update; avoid unsupported attribution
+[ ] record lessons learned and update controls</code></pre></section>
+    </main>
+    <footer class="site-footer"><div class="footer-inner"><span>© <span data-current-year>2026</span> Hack Theory</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="index.html">Home</a></div></div></footer>
+  </body>
+</html>
+
