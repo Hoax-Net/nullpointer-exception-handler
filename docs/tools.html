@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+    <meta name="description" content="Privacy-conscious live cybersecurity tools for the Hack Theory Discord community.">
+    <meta name="theme-color" content="#070912">
+    <title>Live Security Tools — Hack Theory</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="mark">HT</span><span>Hack Theory</span></a><div class="nav-links"><a href="courses.html">Courses</a><a href="security-guide.html">Security Guide</a><a href="ctf.html">CTF</a><a class="button" href="index.html#commands">Commands</a></div></nav></header>
+    <main id="main" class="prose wide-prose">
+      <img class="page-banner" src="assets/tools-banner.png" alt="Live Security Tools banner with shield, DNS, network, and URL analysis motifs">
+      <p class="eyebrow">/opt/hack-theory/tools</p>
+      <h1>Live security tools, without covert surveillance.</h1>
+      <p class="lede">These Discord-native utilities provide passive context. They do not port-scan targets, execute page content, collect visitor fingerprints, or prove that a target is safe.</p>
+
+      <section class="tool-grid">
+        <article class="card"><span class="tag">FREE</span><h2><code>/ip-lookup</code></h2><p>Retrieves public IPv4 registration ranges through standardized RDAP. Private and reserved addresses are rejected. Output is registration data—not a person's physical location.</p></article>
+        <article class="card"><span class="tag">FREE</span><h2><code>/dns-lookup</code></h2><p>Queries A, AAAA, MX, NS, TXT, and CAA records over Cloudflare DNS over HTTPS. Results include TTL and the DNSSEC authenticated-data signal.</p></article>
+        <article class="card"><span class="tag">FREE</span><h2><code>/url-check</code></h2><p>Compares ordinary DNS resolution with Cloudflare's malware/phishing-filtering resolver. The target page is never opened. A clean response is not proof of safety.</p></article>
+        <article class="card"><span class="tag">PRIVACY</span><h2><code>/link-create</code></h2><p>Creates a community redirect with a disclosure screen. Only aggregate confirmed clicks and timestamps are stored—never visitor IPs, browsers, devices, cookies, or fingerprints.</p></article>
+        <article class="card"><span class="tag">FREE</span><h2><code>/link-stats</code></h2><p>Shows aggregate clicks to the creator or staff. Links expire when old and unused. Destinations must use HTTPS and pass the passive block-signal check.</p></article>
+        <article class="card"><span class="tag">CONTRIBUTOR</span><h2><code>/contributor-insights</code></h2><p>An optional combined DNS defense briefing for Server Contributors. This convenience view is paid-role gated; every underlying basic lookup, course, alert, and CTF remains free.</p></article>
+      </section>
+
+      <div class="notice"><strong>External-link rule:</strong> treat all URLs as untrusted until independently verified. Do not enter credentials, run downloads, disable protections, or rely on one reputation source. For a suspicious post, preserve the Discord message link and use <code>/report-security</code>.</div>
+
+      <h2>Responsible-use boundary</h2>
+      <ul>
+        <li>Only investigate systems you own or are explicitly authorized to test.</li>
+        <li>Passive lookup results may be incomplete, cached, or wrong.</li>
+        <li>Never use a tracked community link to mislead, identify, or profile another person.</li>
+        <li>Confirmed block signals are redacted from public bot responses and should be escalated to staff.</li>
+      </ul>
+    </main>
+    <footer class="site-footer"><div class="footer-inner"><span>© <span data-current-year>2026</span> Hack Theory</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="index.html">Home</a></div></div></footer>
+  </body>
+</html>
+
