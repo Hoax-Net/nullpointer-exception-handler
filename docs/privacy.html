@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
     <meta name="description" content="Privacy Policy for the NullPointer Exception Handler Discord bot.">
     <meta name="theme-color" content="#0b0f1a">
-    <title>Privacy Policy â€” NullPointer Exception Handler</title>
+    <title>Privacy Policy — NullPointer Exception Handler</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/site.js" defer></script>
   </head>
@@ -23,7 +23,7 @@
       <article class="prose">
         <p class="eyebrow">Effective August 13, 2026</p>
         <h1>Privacy Policy</h1>
-        <p>This policy explains how NullPointer Exception Handler (the â€œBotâ€), operated for the Hack Theory Discord server, processes information when members participate in quizzes or use its commands.</p>
+        <p>This policy explains how NullPointer Exception Handler (the “Bot”), operated for the Hack Theory Discord server, processes information when members participate in quizzes or use its commands.</p>
 
         <div class="notice"><strong>Short version:</strong> the Bot does not read ordinary messages or private DMs. Quiz buttons, tutor prompts, and security reports are processed only when a member deliberately uses those features.</div>
 
@@ -35,24 +35,28 @@
           <li>XP totals and the count and label of any random, non-cash quiz bonus.</li>
           <li>Text deliberately submitted to <code>/ask</code> or <code>/fact-check</code>, which is sent to Cloudflare Workers AI to generate a response. Prompts are rate-limited; the Bot does not intentionally retain their text after the response.</li>
           <li>Reports deliberately submitted with <code>/report-security</code>, including reporter ID, reported-member ID, report text, timestamp, and review status.</li>
+          <li>Live-tool inputs deliberately submitted to IP, DNS, URL, CTF, screening, and contributor commands. Lookup inputs are processed for the requested response and are not intentionally retained as a browsing history.</li>
+          <li>Community-link destination, label, creator ID, creation time, aggregate confirmed-click count, and last confirmed-click time.</li>
+          <li>CTF session nonce, expected answer, expiry, attempt count, unique-solve total, and a member-specific signed flag. Expired sessions are deleted.</li>
+          <li>Learning-path screening answers, score, and expiry. Passing results are sent to staff for human review; they do not automatically grant a trusted role.</li>
           <li>The configured Discord server and channel IDs needed to deliver quizzes and staff logs.</li>
           <li>Minimal operational errors and request metadata processed by the hosting providers for security and reliability.</li>
         </ul>
 
         <h2>Information the Bot does not request</h2>
-        <p>The Bot does not request or intentionally collect ordinary message content, direct messages, email addresses, linked Discord connections, presence, friend relationships, voice or video activity, contacts, passwords, payment information, or precise location. All privileged Gateway intents are disabled.</p>
+        <p>The Bot does not request or intentionally collect ordinary message content, direct messages, email addresses, linked Discord connections, presence, friend relationships, voice or video activity, contacts, passwords, payment information, visitor IP addresses for community links, device fingerprints, or precise location. All privileged Gateway intents are disabled.</p>
 
         <h2>How information is used</h2>
         <p>Information is used to score quizzes and rewards, show statistics, provide requested tutor responses, deliver educational and CISA Known Exploited Vulnerabilities alerts, privately queue suspicious-contact reports for human staff review, diagnose failures, and protect the service from abuse.</p>
 
         <h2>Storage and retention</h2>
-        <p>Quiz-level answer records and closed quiz snapshots are retained for up to 30 days by default. Security reports are retained for up to 90 days for staff review and abuse prevention. Aggregate leaderboard statistics are retained until member deletion, decommissioning, or administrative deletion. Temporary deletion confirmations expire after approximately ten minutes.</p>
+        <p>Quiz-level answer records and closed quiz snapshots are retained for up to 30 days by default. Security reports are retained for up to 90 days. CTF and screening sessions expire after 45 and 15 minutes respectively. Unused community links may be removed after 180 days; only aggregate clicks are retained. Aggregate quiz and CTF statistics are retained until member deletion, decommissioning, or administrative deletion. Temporary deletion confirmations expire after approximately ten minutes.</p>
 
         <h2>Deletion and member choices</h2>
         <p>Use <code>/delete-my-data</code> in Hack Theory to review a confirmation and permanently delete your retained quiz answers and leaderboard profile. You can also ask Hack Theory staff for help if the command is unavailable. Deletion does not remove Discord's own message records or third-party infrastructure logs controlled by Discord, Cloudflare, or GitHub.</p>
 
         <h2>Service providers</h2>
-        <p>Discord delivers application interactions and messages. Cloudflare hosts the handler, state coordinator, and opt-in AI tutor. GitHub Pages hosts this site, and CISA's official GitHub mirror supplies the public Known Exploited Vulnerabilities feed. These providers may process network and account metadata under their own terms.</p>
+        <p>Discord delivers application interactions and messages. Cloudflare hosts the handler, state coordinator, AI tutor, DNS-over-HTTPS lookups, and malware/phishing DNS-filter signal. RDAP.org routes public IP registration queries to the appropriate registry. GitHub Pages hosts this site, and CISA's official GitHub mirror supplies the Known Exploited Vulnerabilities feed. These providers may process network and account metadata under their own terms.</p>
 
         <h2>Sharing</h2>
         <p>Correct-participant results and deliberately submitted security reports are shared only in the configured staff-log channel. Public leaderboards can show display names and quiz statistics. A tutor response is public only when the member explicitly selects that option. Information is not sold.</p>
@@ -70,7 +74,8 @@
         <p>For privacy questions or requests, contact Hack Theory server staff through Discord. Do not send passwords, bot tokens, or other secrets.</p>
       </article>
     </main>
-    <footer class="site-footer"><div class="footer-inner"><span>Â© <span data-current-year>2026</span> Hack Theory.</span><div class="footer-links"><a href="index.html">Home</a><a href="terms.html">Terms of Service</a></div></div></footer>
+    <footer class="site-footer"><div class="footer-inner"><span>© <span data-current-year>2026</span> Hack Theory.</span><div class="footer-links"><a href="index.html">Home</a><a href="terms.html">Terms of Service</a></div></div></footer>
   </body>
 </html>
 
+
