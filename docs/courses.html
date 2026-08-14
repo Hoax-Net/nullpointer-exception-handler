@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'">
+    <meta name="description" content="Hack Theory's free, structured IT learning tracks and safe labs.">
+    <meta name="theme-color" content="#070912">
+    <title>Course Catalog — Hack Theory Academy</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Primary navigation"><a class="brand" href="index.html"><span class="mark">HT</span><span>Hack Theory Academy</span></a><div class="nav-links"><a href="tools.html">Tools</a><a href="security-guide.html">Security Guide</a><a href="ctf.html">CTF</a><a class="button" href="index.html#commands">Join in Discord</a></div></nav></header>
+    <main id="main" class="prose wide-prose">
+      <img class="page-banner" src="assets/academy-banner.png" alt="Hack Theory Academy banner with a secure network and Linux terminal design">
+      <p class="eyebrow">~/academy/catalog</p>
+      <h1>From first command to defensible systems.</h1>
+      <p class="lede">Every core course is free. Work through the modules, complete the listed labs only in systems you own or purpose-built training environments, then use quizzes and path screens to check your understanding.</p>
+
+      <section class="course-card">
+        <div><span class="tag">BEGINNER</span><h2>Cybersecurity Foundations</h2><p>Build a precise mental model of risk, identity, data, and incident handling.</p></div>
+        <ol><li><strong>Threats and risk:</strong> assets, actors, attack surface, likelihood, and impact.</li><li><strong>Identity:</strong> MFA, sessions, least privilege, secrets, and recovery.</li><li><strong>Host and data defense:</strong> patching, backups, encryption, logging, and EDR.</li><li><strong>Incident workflow:</strong> preparation, detection, containment, eradication, recovery, lessons learned.</li></ol>
+        <p><strong>Lab:</strong> create a threat model for a small web service. <strong>Assessment:</strong> identify three controls and the detection evidence each should produce.</p>
+      </section>
+
+      <section class="course-card">
+        <div><span class="tag">BEGINNER → INTERMEDIATE</span><h2>Networking and Packet Analysis</h2><p>Understand what crosses the wire and how defenders reason from it.</p></div>
+        <ol><li><strong>Models and addressing:</strong> Ethernet, IP, TCP/UDP, ports, subnetting, and routing.</li><li><strong>Core services:</strong> ARP, DNS, DHCP, HTTP, TLS, and NAT.</li><li><strong>Packet workflow:</strong> filters, flows, handshakes, timing, retransmission, and baselines.</li><li><strong>Detection:</strong> scans, beacons, unusual DNS, lateral movement, and encrypted-traffic metadata.</li></ol>
+        <p><strong>Lab:</strong> capture traffic from your own test client resolving and loading a local service. <strong>Assessment:</strong> annotate the DNS and TCP/TLS sequence.</p>
+      </section>
+
+      <section class="course-card">
+        <div><span class="tag">BEGINNER → ADVANCED</span><h2>Linux Command Line and Automation</h2><p>Operate safely, make changes observable, and automate repeatable work.</p></div>
+        <ol><li><strong>Shell fundamentals:</strong> paths, quoting, pipes, redirection, exit codes, and help pages.</li><li><strong>Files and processes:</strong> ownership, permissions, services, signals, logs, and resource use.</li><li><strong>Text and network tools:</strong> grep-style searching, structured output, SSH, curl, DNS, and sockets.</li><li><strong>Safe scripting:</strong> strict modes, input validation, temporary files, logging, testing, and rollback.</li></ol>
+        <p><strong>Lab:</strong> write a Bash health check for a local service that never prints secrets. <strong>Assessment:</strong> explain failure modes and safe retry behavior.</p>
+      </section>
+
+      <section class="course-card">
+        <div><span class="tag">INTERMEDIATE</span><h2>Secure Web and Software Engineering</h2><p>Design frontend, backend, and delivery systems that fail safely.</p></div>
+        <ol><li><strong>Trust boundaries:</strong> validation, encoding, authentication, authorization, and sessions.</li><li><strong>Data layer:</strong> parameterized queries, migration safety, encryption, and least-privilege service accounts.</li><li><strong>Browser security:</strong> CSP, cookies, CORS, CSRF, XSS, dependencies, and supply chain.</li><li><strong>Delivery:</strong> reviews, tests, secret scanning, SBOMs, staged deployment, telemetry, and rollback.</li></ol>
+        <p><strong>Lab:</strong> harden a deliberately vulnerable local demo app. <strong>Assessment:</strong> pair each fix with a regression test and observable alert.</p>
+      </section>
+
+      <section class="course-card">
+        <div><span class="tag">INTERMEDIATE → ADVANCED</span><h2>Blue, Red, and Purple Team Operations</h2><p>Practice authorized testing and detection improvement as one feedback loop.</p></div>
+        <ol><li><strong>Blue:</strong> telemetry design, triage, timelines, containment, and detection engineering.</li><li><strong>Red:</strong> rules of engagement, safe emulation, evidence handling, stop conditions, and reporting.</li><li><strong>Purple:</strong> map tests to measurable objectives, compare evidence, tune, and retest.</li><li><strong>Communication:</strong> severity, uncertainty, mitigation owners, validation, and executive summaries.</li></ol>
+        <p><strong>Lab:</strong> run a benign authentication-failure simulation in a local lab. <strong>Assessment:</strong> produce a detection query, response checklist, and retest result.</p>
+      </section>
+
+      <div class="notice"><strong>Progression:</strong> start with <code>/study-tip</code>, answer scheduled quizzes, complete both <code>/ctf-start</code> labs, and use <code>/path-screen</code>. A passing screen creates a staff recommendation; it never grants trust or permissions automatically.</div>
+    </main>
+    <footer class="site-footer"><div class="footer-inner"><span>© <span data-current-year>2026</span> Hack Theory</span><div class="footer-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="index.html">Home</a></div></div></footer>
+  </body>
+</html>
+
