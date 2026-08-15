@@ -21,11 +21,13 @@
     </header>
     <main id="main">
       <article class="prose">
-        <p class="eyebrow">Effective August 13, 2026</p>
+        <p class="eyebrow">Effective August 15, 2026</p>
         <h1>Privacy Policy</h1>
         <p>This policy explains how NullPointer Exception Handler (the “Bot”), operated for the Hack Theory Discord server, processes information when members participate in quizzes or use its commands.</p>
 
-        <div class="notice"><strong>Short version:</strong> the Bot does not read ordinary messages or private DMs. Quiz buttons, tutor prompts, and security reports are processed only when a member deliberately uses those features.</div>
+        <div class="notice"><strong>Short version:</strong> the Bot reads recent messages in the <strong>general channel only</strong>, so its conversational companion can occasionally join the discussion. It does not store the text of those messages, and it does not read any other channel or your private DMs. Everything else — quiz buttons, tutor prompts, assigned tasks, verification, and security reports — is processed only when a member deliberately uses that feature.</div>
+
+        <div class="notice"><strong>What changed:</strong> earlier versions of this Bot read no ordinary messages at all. As of this version it reads the general channel to power the companion feature. If you would prefer not to be read, do not post in that channel — the rest of the Bot works without it, and server staff can disable the companion entirely.</div>
 
         <h2>Information the Bot processes</h2>
         <ul>
@@ -39,27 +41,38 @@
           <li>Community-link destination, label, creator ID, creation time, aggregate confirmed-click count, and last confirmed-click time.</li>
           <li>CTF session nonce, expected answer, expiry, attempt count, unique-solve total, and a member-specific signed flag. Expired sessions are deleted.</li>
           <li>Learning-path screening answers, score, and expiry. Passing results are sent to staff for human review; they do not automatically grant a trusted role.</li>
+          <li><strong>General-channel messages, read transiently for the conversational companion.</strong> Roughly every five minutes the Bot fetches the most recent messages in the configured general channel. Author display name and message text are held in memory only for as long as it takes to decide whether to reply and, if it replies, to generate that reply through Cloudflare Workers AI. Message text is <em>not</em> written to the Bot's storage. The only things retained are the numeric ID of the most recent message seen and the ID of the message last replied to, which exist so the Bot does not answer the same message twice.</li>
+          <li>Verification questionnaire answers: claimed experience level, stated reason for joining, chosen focus area, the five technical answers, and the resulting score. These are shown to moderators so a human decides on access.</li>
+          <li>Assigned-task records: the generated task, the written summary you submit, each quiz answer, the score, and the time taken. These are delivered to the server owner and retained for review.</li>
           <li>The configured Discord server and channel IDs needed to deliver quizzes and staff logs.</li>
           <li>Minimal operational errors and request metadata processed by the hosting providers for security and reliability.</li>
         </ul>
 
         <h2>Information the Bot does not request</h2>
-        <p>The Bot does not request or intentionally collect ordinary message content, direct messages, email addresses, linked Discord connections, presence, friend relationships, voice or video activity, contacts, passwords, payment information, visitor IP addresses for community links, device fingerprints, or precise location. All privileged Gateway intents are disabled.</p>
+        <p>The Bot does not request or intentionally collect message content from any channel other than the configured general channel, direct messages between members, email addresses, linked Discord connections, presence, friend relationships, voice or video activity, contacts, passwords, payment information, visitor IP addresses for community links, device fingerprints, or precise location.</p>
+        <p>The Presence and Server Members privileged Gateway intents remain disabled. The Message Content intent is enabled solely so the companion can read the general channel as described above; the Bot holds no Gateway connection and reads that channel by periodic request rather than by live event stream.</p>
+
+        <h2>The conversational companion</h2>
+        <p>The companion exists to keep the general channel active. It is rate-limited to a small number of replies per day, waits a randomized cooldown between replies, never mentions or pings anyone, and is instructed to stay out of conversations that are personal, emotional, or related to moderation. Generated replies containing a mention or a link are discarded rather than posted. Server staff can disable the feature entirely, and it can be pointed at a different channel or switched off through configuration.</p>
+        <p>Message text sent to Cloudflare Workers AI for this purpose is truncated and limited to the most recent messages. Do not post secrets, credentials, customer data, or private information in any public channel, including this one.</p>
 
         <h2>How information is used</h2>
-        <p>Information is used to score quizzes and rewards, show statistics, provide requested tutor responses, deliver educational and CISA Known Exploited Vulnerabilities alerts, privately queue suspicious-contact reports for human staff review, diagnose failures, and protect the service from abuse.</p>
+        <p>Information is used to score quizzes and rewards, show statistics, provide requested tutor responses, generate occasional companion replies and conversation prompts in the general channel, assign and grade practical tasks, run membership verification for human review, deliver educational, resource, and CISA Known Exploited Vulnerabilities alerts, privately queue suspicious-contact reports for human staff review, diagnose failures, and protect the service from abuse.</p>
 
         <h2>Storage and retention</h2>
-        <p>Quiz-level answer records and closed quiz snapshots are retained for up to 30 days by default. Security reports are retained for up to 90 days. CTF and screening sessions expire after 45 and 15 minutes respectively. Unused community links may be removed after 180 days; only aggregate clicks are retained. Aggregate quiz and CTF statistics are retained until member deletion, decommissioning, or administrative deletion. Temporary deletion confirmations expire after approximately ten minutes.</p>
+        <p>Quiz-level answer records and closed quiz snapshots are retained for up to 30 days by default. Security reports are retained for up to 90 days. Assigned-task records and verification results are retained for up to 180 days. CTF and screening sessions expire after 45 and 15 minutes respectively; verification sessions expire after 30 minutes. Unused community links may be removed after 180 days; only aggregate clicks are retained. Aggregate quiz and CTF statistics are retained until member deletion, decommissioning, or administrative deletion. Temporary deletion confirmations expire after approximately ten minutes. General-channel message text is not retained at all.</p>
 
         <h2>Deletion and member choices</h2>
-        <p>Use <code>/delete-my-data</code> in Hack Theory to review a confirmation and permanently delete your retained quiz answers and leaderboard profile. You can also ask Hack Theory staff for help if the command is unavailable. Deletion does not remove Discord's own message records or third-party infrastructure logs controlled by Discord, Cloudflare, or GitHub.</p>
+        <p>Use <code>/delete-my-data</code> in Hack Theory to review a confirmation and permanently delete your retained quiz answers, leaderboard profile, assigned-task records, and verification answers. You can also ask Hack Theory staff for help if the command is unavailable. Deletion does not remove Discord's own message records, reports already delivered to staff or the server owner by direct message, or third-party infrastructure logs controlled by Discord, Cloudflare, or GitHub.</p>
 
         <h2>Service providers</h2>
         <p>Discord delivers application interactions and messages. Cloudflare hosts the handler, state coordinator, AI tutor, DNS-over-HTTPS lookups, and malware/phishing DNS-filter signal. RDAP.org routes public IP registration queries to the appropriate registry. GitHub Pages hosts this site, and CISA's official GitHub mirror supplies the Known Exploited Vulnerabilities feed. These providers may process network and account metadata under their own terms.</p>
 
         <h2>Sharing</h2>
-        <p>Correct-participant results and deliberately submitted security reports are shared only in the configured staff-log channel. Public leaderboards can show display names and quiz statistics. A tutor response is public only when the member explicitly selects that option. Information is not sold.</p>
+        <p>Correct-participant results and deliberately submitted security reports are shared only in the configured staff-log channel. Verification dossiers are shared with server moderators in that same channel. Assigned-task reports, including your written summary and each quiz answer, are sent by direct message to the server owner. Public leaderboards can show display names and quiz statistics. A tutor response is public only when the member explicitly selects that option. Information is not sold.</p>
+
+        <h2>Use in other servers</h2>
+        <p>The Bot may be installed in servers other than Hack Theory, but each server must be approved individually by the bot owner before any command responds. In an approved server, that server's own owner and moderators receive the task reports and verification dossiers for their members, and the configured channels belong to that server. This policy describes the Bot's behavior generally; the operators of any other server are responsible for how they use it.</p>
 
         <h2>Security</h2>
         <p>The Bot verifies Discord's Ed25519 request signatures, rejects stale or invalid interaction requests, stores the bot token only as an encrypted hosting secret, requests least-privilege Discord permissions, and avoids privileged Gateway access. No system is perfectly secure, but the service is designed to minimize collected data and limit access.</p>
