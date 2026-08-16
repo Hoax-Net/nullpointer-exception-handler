@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action https://discord.com; frame-ancestors 'none'">
-    <meta name="description" content="Hack Theory's cybersecurity learning bot for quizzes, rewards, daily lessons, CVE alerts, and an opt-in AI tutor.">
-    <meta property="og:title" content="NullPointer Exception Handler">
-    <meta property="og:description" content="Randomized cybersecurity challenges for the Hack Theory Discord community.">
+    <meta name="description" content="Hack Theory is a Discord community for hackers, defenders, and developers. Practice labs, CTFs, a simulated Linux shell, and passive security tools that run from chat.">
+    <meta property="og:title" content="Hack Theory">
+    <meta property="og:description" content="A Discord community for people who break and defend things. Beginners welcome.">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#0b0f1a">
-    <title>NullPointer Exception Handler — Hack Theory Quiz Bot</title>
+    <title>Hack Theory — a community for hackers, defenders, and developers</title>
     <link rel="stylesheet" href="assets/styles.css">
     <script src="assets/site.js" defer></script>
   </head>
@@ -24,7 +24,7 @@
         </a>
         <div class="nav-links">
           <a href="courses.html">Courses</a>
-          <a href="tools.html">Tools</a>
+          <a href="#tools">Tools</a>
           <a href="ctf.html">CTF</a>
           <a href="privacy.html">Privacy</a>
           <a class="button" href="https://discord.gg/Zc8hat6Yhm" rel="noopener">Join Hack Theory</a>
@@ -35,9 +35,10 @@
     <main id="main">
       <section class="hero">
         <div>
-          <p class="eyebrow">Hack Theory // Knowledge challenge system</p>
-          <h1>Catch the exception. Prove the theory.</h1>
-          <p class="lede">NullPointer Exception Handler delivers live defensive tools, dynamic CTFs, timed challenges, assigned practical tasks, structured courses, vulnerability alerts, and an opt-in technical tutor—with every data practice written down rather than buried.</p>
+          <p class="eyebrow">Hack Theory // A community for people who break and defend things</p>
+          <h1>Learn security by doing it badly first.</h1>
+          <p class="lede">Hack Theory is a Discord community of hackers, defenders, and developers—professional and hobbyist. Nobody minds a beginner question here. Bring a broken config, a log you cannot read, or a CTF you are stuck on, and someone will work through it with you.</p>
+          <p class="lede">You get a practice Linux box that resets when you break it, per-member CTF challenges, randomized quizzes, real IT tasks reviewed by staff, and a toolkit of passive security tools that run straight from chat.</p>
           <div class="actions">
             <a class="button" href="https://discord.gg/Zc8hat6Yhm" rel="noopener">Join Hack Theory</a>
             <a class="button secondary" href="#how-it-works">See how it works</a>
@@ -63,15 +64,43 @@ answer locked ✓</pre>
         </div>
       </section>
 
+      <section class="section" id="tools">
+        <p class="eyebrow">Runs from chat</p>
+        <h2>The toolkit, and what it will not do.</h2>
+        <p class="section-intro">Every reconnaissance tool below reads public third-party records — certificate transparency logs, RDAP registries, DNS. None of them connect to, scan, or probe a host you name. Use them on infrastructure you own or are authorized to assess.</p>
+        <div class="cards">
+          <article class="card">
+            <span class="tag">CALCULATORS</span>
+            <h3>Work offline of everything</h3>
+            <p><code>/subnet</code> gives the full IPv4 breakdown and gets <code>/31</code> and <code>/32</code> right. <code>/encode</code> converts base64, hex, and URL both ways. <code>/hash</code> produces SHA-256/384/512 for checking a download against its published checksum. Pure computation, so an upstream outage cannot break them.</p>
+          </article>
+          <article class="card">
+            <span class="tag">PASSIVE RECON</span>
+            <h3>Look without touching</h3>
+            <p><code>/cert-search</code> finds subdomains in certificate transparency logs. <code>/domain-info</code> returns registrar and expiry via RDAP — a very new registration is a phishing signal. Plus <code>/dns-lookup</code>, <code>/ip-lookup</code>, and <code>/url-check</code> against malware filtering.</p>
+          </article>
+          <article class="card">
+            <span class="tag">PRACTICE SHELL</span>
+            <h3>A Linux box you cannot break</h3>
+            <p><code>/terminal</code> gives you a simulated machine with a real command interpreter — <code>ls</code>, <code>grep</code>, <code>find</code>, pipes, redirection. It is a simulation, so there is no host to escape to and nothing to damage. The starting image hides a set-uid binary, a world-writable directory, and a committed credential. Find all three.</p>
+          </article>
+          <article class="card">
+            <span class="tag">CONTRIBUTOR</span>
+            <h3>The convenience layer</h3>
+            <p><code>/email-security</code> grades SPF, DMARC, and MTA-STS. <code>/attack-surface</code> combines CT, RDAP, mail posture, DNS, and reputation into one review. <code>/bulk-url-check</code> takes eight URLs at once. Everything above stays free for every member, permanently.</p>
+          </article>
+        </div>
+      </section>
+
       <section class="section" id="features">
-        <p class="eyebrow">Designed for real communities</p>
+        <p class="eyebrow">How the server works</p>
         <h2>Interactive, and honest about it.</h2>
         <p class="section-intro">Members answer with Discord buttons. The bot never uses the Server Members or Presence privileged intents. Its conversational companion does read the general channel — that is written down in the <a href="privacy.html">Privacy Policy</a> rather than buried, it stores none of that text, and server staff can switch it off.</p>
         <div class="grid">
           <article class="card">
             <span class="tag">RANDOMIZED</span>
             <h3>Four challenges a day</h3>
-            <p>Each launch waits a randomized four-to-eight-hour interval, with an initial deployment jitter to avoid predictable posting patterns.</p>
+            <p>Each launch waits a randomized five-and-a-half to six-and-a-half hour interval, with an initial deployment jitter to avoid predictable posting patterns.</p>
           </article>
           <article class="card">
             <span class="tag">AI-RESISTANT</span>
@@ -79,9 +108,9 @@ answer locked ✓</pre>
             <p>Generated values, shuffled choices, short windows, one-shot answers, and evidence-based scenarios make simple answer-key lookup less useful.</p>
           </article>
           <article class="card">
-            <span class="tag">PRIVATE BY DESIGN</span>
-            <h3>No chat surveillance</h3>
-            <p>Selections are submitted as signed Discord interactions. Ordinary messages, DMs, presence, voice, email, and connections are not collected.</p>
+            <span class="tag">SCOPED, NOT SECRET</span>
+            <h3>One channel, written down</h3>
+            <p>The companion reads the general channel and stores none of it. No other channel, no DMs, no presence, no voice, no email, no connections. The <a href="privacy.html">Privacy Policy</a> spells out exactly what is read and how to opt out.</p>
           </article>
           <article class="card">
             <span class="tag">BROAD COVERAGE</span>
