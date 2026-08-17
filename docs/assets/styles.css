@@ -300,6 +300,15 @@ h3 {
   border-radius: 1rem;
 }
 
+.table-wrap + .actions,
+.table-wrap + h3 {
+  margin-top: 2rem;
+}
+
+.section h3 + .table-wrap {
+  margin-bottom: 1rem;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;

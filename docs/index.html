@@ -23,6 +23,7 @@
           <span>NullPointer Exception Handler</span>
         </a>
         <div class="nav-links">
+          <a href="bot.html">Bot</a>
           <a href="courses.html">Courses</a>
           <a href="#tools">Tools</a>
           <a href="ctf.html">CTF</a>
@@ -68,7 +69,7 @@ answer locked ✓</pre>
         <p class="eyebrow">Runs from chat</p>
         <h2>The toolkit, and what it will not do.</h2>
         <p class="section-intro">Every reconnaissance tool below reads public third-party records — certificate transparency logs, RDAP registries, DNS. None of them connect to, scan, or probe a host you name. Use them on infrastructure you own or are authorized to assess.</p>
-        <div class="cards">
+        <div class="grid">
           <article class="card">
             <span class="tag">CALCULATORS</span>
             <h3>Work offline of everything</h3>
@@ -142,6 +143,21 @@ answer locked ✓</pre>
             <h3>Free structured courses</h3>
             <p>Cybersecurity, networking, Linux, secure software engineering, and team-operations tracks include labs, assessments, and safe-use boundaries.</p>
           </article>
+          <article class="card">
+            <span class="tag">COURSE PORTAL</span>
+            <h3>Anyone on staff can publish</h3>
+            <p><code>/teach</code> opens an upload portal that publishes a structured course straight into the academy channels, so the catalog grows without a site deploy.</p>
+          </article>
+          <article class="card">
+            <span class="tag">ASSIGNED WORK</span>
+            <h3>Real IT tasks, reviewed</h3>
+            <p>Staff assign a randomized task with <code>/task-assign</code>. You submit it and answer five follow-up questions, and a human reads the result — not an autograder.</p>
+          </article>
+          <article class="card">
+            <span class="tag">STAFF TOOLING</span>
+            <h3>Notices and review queues</h3>
+            <p>Warning and information notices, member moderation views, staff polls that escalate on a majority vote, and one place to see every half-finished review.</p>
+          </article>
         </div>
       </section>
 
@@ -165,6 +181,7 @@ answer locked ✓</pre>
       <section class="section" id="commands">
         <p class="eyebrow">Slash commands</p>
         <h2>Useful controls, minimal noise.</h2>
+        <p class="section-intro">A sample across each system. The bot registers <strong>60 commands</strong> in total — the <a href="bot.html#commands">complete reference</a> lists every one of them with the permission it needs.</p>
         <div class="table-wrap">
           <table>
             <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
@@ -177,20 +194,30 @@ answer locked ✓</pre>
               <tr><td><code>/ask</code></td><td>Member</td><td>Ask the opt-in security tutor; private by default.</td></tr>
               <tr><td><code>/fact-check</code></td><td>Member</td><td>Respectfully evaluate a technical claim.</td></tr>
               <tr><td><code>/report-security</code></td><td>Member</td><td>Privately queue suspicious invites or mass contacts for staff review.</td></tr>
-              <tr><td><code>/ip-lookup</code></td><td>Everyone</td><td>Passively retrieve public IPv4 registration data through RDAP.</td></tr>
+              <tr><td><code>/checkin</code></td><td>Member</td><td>Check in for the day and build your streak.</td></tr>
+              <tr><td><code>/perks</code></td><td>Member</td><td>Show what your roles entitle you to, and what stays free for everyone.</td></tr>
+              <tr><td><code>/terminal</code></td><td>Everyone</td><td>Open or reset your simulated Linux practice shell.</td></tr>
+              <tr><td><code>/sh</code></td><td>Everyone</td><td>Run a command in that shell. Simulated, and output is public.</td></tr>
+              <tr><td><code>/ctf-start</code></td><td>Everyone</td><td>Start a private, per-member randomized CTF session.</td></tr>
+              <tr><td><code>/ctf-stats</code></td><td>Everyone</td><td>Show the live CTF solve leaderboard.</td></tr>
+              <tr><td><code>/ip-lookup</code></td><td>Everyone</td><td>Passively retrieve public IP registration data through RDAP.</td></tr>
               <tr><td><code>/dns-lookup</code></td><td>Everyone</td><td>Resolve common record types over Cloudflare DNS over HTTPS.</td></tr>
               <tr><td><code>/url-check</code></td><td>Everyone</td><td>Check a hostname against malware/phishing DNS filtering without opening it.</td></tr>
-              <tr><td><code>/link-create</code></td><td>Member</td><td>Create a disclosed, aggregate-only community link.</td></tr>
-              <tr><td><code>/ctf-start</code></td><td>Everyone</td><td>Launch one of two private, randomized CTF sessions.</td></tr>
-              <tr><td><code>/path-screen</code></td><td>Everyone</td><td>Complete a baseline technical-path screen for staff review.</td></tr>
-              <tr><td><code>/contributor-insights</code></td><td>Contributor</td><td>Generate an optional combined domain defense briefing.</td></tr>
-              <tr><td><code>/security-audit</code></td><td>Manage Server</td><td>Write a read-only high-impact role audit to staff logs.</td></tr>
+              <tr><td><code>/subnet</code></td><td>Everyone</td><td>IPv4 subnet calculator, correct on <code>/31</code> and <code>/32</code>.</td></tr>
+              <tr><td><code>/verify</code></td><td>Everyone</td><td>Start or resume server verification.</td></tr>
+              <tr><td><code>/roles</code></td><td>Member</td><td>Pick your languages, systems, interests, and region.</td></tr>
+              <tr><td><code>/task-mine</code></td><td>Member</td><td>Show your active assigned IT task and how to submit it.</td></tr>
               <tr><td><code>/help</code></td><td>Everyone</td><td>Explain participation, privacy, and commands.</td></tr>
               <tr><td><code>/delete-my-data</code></td><td>Member</td><td>Confirm and permanently remove retained answers and stats.</td></tr>
-              <tr><td><code>/quiz-start</code></td><td>Manage Server</td><td>Launch a quiz immediately.</td></tr>
-              <tr><td><code>/quiz-close</code></td><td>Manage Server</td><td>Close and score the active quiz.</td></tr>
+              <tr><td><code>/teach</code></td><td>Manage Server</td><td>Open the course upload portal and publish a course.</td></tr>
+              <tr><td><code>/warn</code></td><td>Manage Server</td><td>Post a warning notice, optionally pinging someone.</td></tr>
+              <tr><td><code>/poll</code></td><td>Manage Server</td><td>Create a yes/no poll and alert staff if the majority votes yes.</td></tr>
+              <tr><td><code>/security-audit</code></td><td>Manage Server</td><td>Write a read-only high-impact role audit to staff logs.</td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="actions">
+          <a class="button secondary" href="bot.html#commands">See all 60 commands</a>
         </div>
       </section>
 
@@ -206,7 +233,7 @@ answer locked ✓</pre>
         <h2>Running it in your own server</h2>
         <p>NullPointer Exception Handler is built for and maintained by Hack Theory. It can be installed elsewhere, but each server is enabled individually by the bot owner — until yours is approved the commands stay inactive and point back here.</p>
         <p>Install it, then request approval in <a href="https://discord.gg/Zc8hat6Yhm" rel="noopener">Hack Theory</a> with the server ID the bot reports to you.</p>
-        <p><a href="https://discord.com/oauth2/authorize?client_id=1306605317676859392&amp;permissions=2416135185&amp;scope=bot%20applications.commands&amp;integration_type=0">Add the bot to your server</a></p>
+        <p><a href="https://discord.com/oauth2/authorize?client_id=1306605317676859392&amp;permissions=2416143377&amp;scope=bot%20applications.commands&amp;integration_type=0">Add the bot to your server</a></p>
       </section>
     </main>
 

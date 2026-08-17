@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; connect-src 'none'; base-uri 'none'; form-action https://discord.com; frame-ancestors 'none'">
+    <meta name="description" content="NullPointer Exception Handler is Hack Theory's privacy-conscious Discord learning bot: 60 slash commands for quizzes, CTFs, a practice shell, passive security tools, courses, and assigned IT tasks — without reading ordinary chat.">
+    <meta property="og:title" content="NullPointer Exception Handler — Hack Theory">
+    <meta property="og:description" content="Quizzes, dynamic CTFs, a simulated practice shell, passive security tools, CISA KEV alerts, courses, and an opt-in AI tutor. No privileged intents.">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0b0f1a">
+    <title>The Bot — NullPointer Exception Handler</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <script src="assets/site.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="NullPointer Exception Handler home">
+          <span class="mark" aria-hidden="true">NP</span>
+          <span>NullPointer Exception Handler</span>
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="tools.html">Tools</a>
+          <a href="ctf.html">CTF</a>
+          <a href="privacy.html">Privacy</a>
+          <a class="button" href="https://discord.gg/Zc8hat6Yhm" rel="noopener">Join Hack Theory</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Hack Theory // Discord application</p>
+          <h1>Sixty commands. No chat reading.</h1>
+          <p class="lede">NullPointer Exception Handler turns a Discord server into a structured learning environment — timed quizzes, per-member CTFs, a simulated Linux box, passive security tooling, published courses, and real IT tasks reviewed by staff.</p>
+          <p class="lede">It runs entirely on Cloudflare Workers, holds no Gateway connection, and requests no privileged intents.</p>
+          <div class="actions">
+            <a class="button" href="https://discord.com/oauth2/authorize?client_id=1306605317676859392&amp;permissions=2416143377&amp;scope=bot%20applications.commands&amp;integration_type=0">Add the bot</a>
+            <a class="button secondary" href="#commands">Browse all commands</a>
+          </div>
+        </div>
+        <div class="terminal" aria-label="Bot status summary">
+          <div class="terminal-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <pre><span class="ok">$ botctl inspect nullpointer</span>
+version      4.16.0
+commands     60 registered
+runtime      Cloudflare Workers
+storage      Durable Objects + SQLite
+privileged   intents: none
+admin        permission: not requested
+messages     ordinary chat: not read
+gateway      connection: none
+servers      owner-approved individually
+
+<span class="ok">status: ready ✓</span></pre>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">Permission transparency</p>
+        <h2>Purpose-built access, not Administrator.</h2>
+        <p class="section-intro">Discord delivers interactions either through a Gateway connection or an outgoing HTTP webhook — never both. This bot uses the webhook path, so there is no socket sitting in your server consuming events. Everything it does starts from a signed interaction you initiated.</p>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">INTERACTIONS</span>
+            <h3>Signed requests only</h3>
+            <p>Slash commands and buttons arrive as Discord-signed HTTP requests. Every payload is verified before the Worker acts on it.</p>
+          </article>
+          <article class="card">
+            <span class="tag">PRIVACY</span>
+            <h3>No privileged intents</h3>
+            <p>Message Content, Server Members, and Presence stay disabled. Ordinary chat and private DMs are never read or stored.</p>
+          </article>
+          <article class="card">
+            <span class="tag">DISCLOSED</span>
+            <h3>One documented exception</h3>
+            <p>The optional conversational companion reads a single general channel, stores none of it, and can be switched off by staff. It is written down in the <a href="privacy.html">Privacy Policy</a> rather than buried.</p>
+          </article>
+          <article class="card">
+            <span class="tag">SECURITY</span>
+            <h3>Owner-gated servers</h3>
+            <p>The install does not request Administrator. Each server is approved individually by the bot owner — until yours is enabled the commands stay inactive.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <p class="eyebrow">What it does</p>
+        <h2>Nine systems, one application.</h2>
+        <div class="grid">
+          <article class="card">
+            <span class="tag">QUIZZES</span>
+            <h3>Randomized and timed</h3>
+            <p>Roughly four challenges a day on a randomized interval, drawn from reviewed questions plus procedural generators. First answer locks; correctness stays private until the quiz closes.</p>
+          </article>
+          <article class="card">
+            <span class="tag">PRACTICE SHELL</span>
+            <h3>A box you cannot break</h3>
+            <p><code>/terminal</code> and <code>/sh</code> give you a simulated Linux machine with a real interpreter — pipes, redirection, <code>grep</code>, <code>find</code>. Three planted weaknesses are waiting in the starting image.</p>
+          </article>
+          <article class="card">
+            <span class="tag">DYNAMIC CTF</span>
+            <h3>Per-member flags</h3>
+            <p>Challenges randomize per session and flags are signed to the solver, so a copied flag will not validate as someone else's solve. <code>/ctf-stats</code> tracks the live board.</p>
+          </article>
+          <article class="card">
+            <span class="tag">PASSIVE RECON</span>
+            <h3>Look without touching</h3>
+            <p>Certificate transparency, RDAP, DNS-over-HTTPS, and malware filtering. Nothing connects to, scans, or probes a host you name.</p>
+          </article>
+          <article class="card">
+            <span class="tag">COURSE PORTAL</span>
+            <h3>Publish and browse</h3>
+            <p><code>/teach</code> opens an upload portal that publishes a structured course to the academy channels, with labs, assessments, and safe-use boundaries.</p>
+          </article>
+          <article class="card">
+            <span class="tag">ASSIGNED WORK</span>
+            <h3>Real IT tasks</h3>
+            <p>Staff assign a randomized task; the member submits it and answers five follow-up questions, which staff review through <code>/task-report</code>.</p>
+          </article>
+          <article class="card">
+            <span class="tag">MODERATION</span>
+            <h3>Notices and review</h3>
+            <p>Warning and information notices, member moderation views, staff polls that escalate on a majority, and a private queue for suspicious-contact reports.</p>
+          </article>
+          <article class="card">
+            <span class="tag">ALERTING</span>
+            <h3>CISA KEV watch</h3>
+            <p>The known-exploited-vulnerability catalog is polled hourly and routed to the server, alongside topic-routed daily learning material.</p>
+          </article>
+          <article class="card">
+            <span class="tag">OPT-IN AI</span>
+            <h3>Tutor and fact checker</h3>
+            <p><code>/ask</code> answers technical questions privately by default. <code>/fact-check</code> evaluates a claim respectfully rather than dunking on whoever made it.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="commands">
+        <p class="eyebrow">Complete reference</p>
+        <h2>Every command, and who can run it.</h2>
+        <p class="section-intro">Commands marked <strong>Manage Server</strong> are restricted by Discord's own permission system, not by an honour system. Owner commands are limited to the bot owner regardless of server role.</p>
+
+        <h3>Learning and progression</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/quiz-status</code></td><td>Everyone</td><td>Show the active quiz and the next scheduled launch.</td></tr>
+              <tr><td><code>/leaderboard</code></td><td>Everyone</td><td>Show the top quiz competitors.</td></tr>
+              <tr><td><code>/profile</code></td><td>Member</td><td>Privately show your quiz statistics.</td></tr>
+              <tr><td><code>/rewards</code></td><td>Member</td><td>See XP, streak, and random bonus reward details.</td></tr>
+              <tr><td><code>/checkin</code></td><td>Member</td><td>Check in for the day and build your streak.</td></tr>
+              <tr><td><code>/study-tip</code></td><td>Everyone</td><td>Get a practical security or engineering study prompt.</td></tr>
+              <tr><td><code>/path-screen</code></td><td>Everyone</td><td>Start a short skills screen for a technical learning path.</td></tr>
+              <tr><td><code>/perks</code></td><td>Member</td><td>Show what your roles entitle you to, and what stays free for everyone.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>AI tutor</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/ask</code></td><td>Member</td><td>Ask the security-focused AI tutor a technical question.</td></tr>
+              <tr><td><code>/fact-check</code></td><td>Member</td><td>Respectfully check a technical claim with the AI tutor.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Practice: CTF and shell</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/ctf-start</code></td><td>Everyone</td><td>Start a private per-member capture-the-flag challenge.</td></tr>
+              <tr><td><code>/ctf-submit</code></td><td>Everyone</td><td>Submit an answer to your active CTF session.</td></tr>
+              <tr><td><code>/ctf-stats</code></td><td>Everyone</td><td>Show the live CTF solve leaderboard.</td></tr>
+              <tr><td><code>/terminal</code></td><td>Everyone</td><td>Open or reset your simulated Linux practice shell.</td></tr>
+              <tr><td><code>/sh</code></td><td>Everyone</td><td>Run a command in your practice shell. Simulated, and output is public.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Passive security toolkit</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/subnet</code></td><td>Everyone</td><td>IPv4 subnet calculator: network, broadcast, mask, and usable range.</td></tr>
+              <tr><td><code>/hash</code></td><td>Everyone</td><td>Compute a SHA digest, for verifying a download against its checksum.</td></tr>
+              <tr><td><code>/encode</code></td><td>Everyone</td><td>Convert text between base64, hex, and URL encoding.</td></tr>
+              <tr><td><code>/ip-lookup</code></td><td>Everyone</td><td>Look up public IP registration data without probing the host.</td></tr>
+              <tr><td><code>/dns-lookup</code></td><td>Everyone</td><td>Resolve a DNS record through Cloudflare DNS over HTTPS.</td></tr>
+              <tr><td><code>/url-check</code></td><td>Everyone</td><td>Check a hostname against malware and phishing DNS filtering.</td></tr>
+              <tr><td><code>/cert-search</code></td><td>Everyone</td><td>Find subdomains from public certificate transparency logs.</td></tr>
+              <tr><td><code>/domain-info</code></td><td>Everyone</td><td>Registrar, registration date, expiry, and status via RDAP.</td></tr>
+              <tr><td><code>/email-security</code></td><td>Contributor</td><td>Audit SPF, DMARC, and MTA-STS posture for a domain.</td></tr>
+              <tr><td><code>/attack-surface</code></td><td>Contributor</td><td>Combined passive exposure review for a domain.</td></tr>
+              <tr><td><code>/bulk-url-check</code></td><td>Contributor</td><td>Check up to eight URLs against malware and phishing filtering.</td></tr>
+              <tr><td><code>/contributor-insights</code></td><td>Contributor</td><td>Advanced combined domain defence briefing.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Assigned IT tasks</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/task-mine</code></td><td>Member</td><td>Show your active assigned task and how to submit it.</td></tr>
+              <tr><td><code>/task-submit</code></td><td>Member</td><td>Submit your task and answer the five follow-up questions.</td></tr>
+              <tr><td><code>/task-assign</code></td><td>Manage Server</td><td>Assign a randomized IT task to a member.</td></tr>
+              <tr><td><code>/task-report</code></td><td>Manage Server</td><td>Review completed task reports.</td></tr>
+              <tr><td><code>/task-clear</code></td><td>Manage Server</td><td>Clear a member's current task so a new one can be given.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Membership and privacy</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/verify</code></td><td>Everyone</td><td>Start or resume server verification.</td></tr>
+              <tr><td><code>/roles</code></td><td>Member</td><td>Pick your languages, systems, interests, and region.</td></tr>
+              <tr><td><code>/help</code></td><td>Everyone</td><td>Learn how the bot works, including participation and privacy.</td></tr>
+              <tr><td><code>/link-create</code></td><td>Member</td><td>Create a disclosed, aggregate-click community link.</td></tr>
+              <tr><td><code>/link-stats</code></td><td>Member</td><td>View aggregate clicks for one of your disclosed links.</td></tr>
+              <tr><td><code>/report-security</code></td><td>Member</td><td>Privately queue a suspicious-contact report for staff review.</td></tr>
+              <tr><td><code>/delete-my-data</code></td><td>Member</td><td>Confirm and permanently delete your answers and statistics.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Moderation and notices</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/warn</code></td><td>Manage Server</td><td>Post a warning notice, optionally pinging someone.</td></tr>
+              <tr><td><code>/notify</code></td><td>Manage Server</td><td>Post an information notice, optionally pinging someone.</td></tr>
+              <tr><td><code>/mod-user</code></td><td>Manage Server</td><td>View a member profile with moderation options.</td></tr>
+              <tr><td><code>/poll</code></td><td>Manage Server</td><td>Create a yes/no poll and alert staff if the majority votes yes.</td></tr>
+              <tr><td><code>/bulk-delete</code></td><td>Manage Server</td><td>Bulk delete messages from specified users in a channel.</td></tr>
+              <tr><td><code>/broadcast</code></td><td>Manage Server</td><td>Send an announcement to a channel, optionally pinging one role.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Content and server management</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/teach</code></td><td>Manage Server</td><td>Open the course upload portal and publish a course.</td></tr>
+              <tr><td><code>/post-content</code></td><td>Manage Server</td><td>Post the most interesting unseen item to a channel.</td></tr>
+              <tr><td><code>/paste</code></td><td>Manage Server</td><td>Post a file as a highlighted code block or tidy text.</td></tr>
+              <tr><td><code>/embed</code></td><td>Manage Server</td><td>Build a custom embedded message.</td></tr>
+              <tr><td><code>/clone-channel</code></td><td>Manage Server</td><td>Clone messages from a source channel to a destination.</td></tr>
+              <tr><td><code>/server-setup</code></td><td>Manage Server</td><td>Provision the verification role, channel, and theme.</td></tr>
+              <tr><td><code>/pending</code></td><td>Manage Server</td><td>Show every half-finished task, review, and draft.</td></tr>
+              <tr><td><code>/verify-queue</code></td><td>Manage Server</td><td>Show members waiting on a verification decision.</td></tr>
+              <tr><td><code>/security-audit</code></td><td>Manage Server</td><td>Write a read-only audit of non-managed role permissions.</td></tr>
+              <tr><td><code>/quiz-start</code></td><td>Manage Server</td><td>Launch a quiz immediately.</td></tr>
+              <tr><td><code>/quiz-close</code></td><td>Manage Server</td><td>Close and score the active quiz.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Bot owner</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Command</th><th>Who</th><th>Purpose</th></tr></thead>
+            <tbody>
+              <tr><td><code>/guild-approve</code></td><td>Bot owner</td><td>Approve a server to use the bot.</td></tr>
+              <tr><td><code>/guild-revoke</code></td><td>Bot owner</td><td>Revoke a server's access to the bot.</td></tr>
+              <tr><td><code>/guild-list</code></td><td>Bot owner</td><td>List servers approved to use the bot.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section" id="install">
+        <p class="eyebrow">Before installation</p>
+        <h2>Know what will happen.</h2>
+        <ol>
+          <li>Discord opens its official authorization screen for application <code>1306605317676859392</code>.</li>
+          <li>Discord displays the exact permissions being requested, for your review.</li>
+          <li>Administrator is not among them, and no privileged intents are enabled.</li>
+          <li>After install, the commands stay inactive until the bot owner approves your server.</li>
+          <li>Request approval in <a href="https://discord.gg/Zc8hat6Yhm" rel="noopener">Hack Theory</a> with the server ID the bot reports back to you.</li>
+        </ol>
+        <div class="actions">
+          <a class="button secondary" href="privacy.html">Read the privacy policy</a>
+          <a class="button secondary" href="terms.html">Read the terms</a>
+          <a class="button secondary" href="security-guide.html">Security playbook</a>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div>
+          <h2>Ready to handle the exception?</h2>
+          <p>Add the bot to your server, or join Hack Theory first and try every command there.</p>
+        </div>
+        <a class="button" href="https://discord.com/oauth2/authorize?client_id=1306605317676859392&amp;permissions=2416143377&amp;scope=bot%20applications.commands&amp;integration_type=0">Add the bot</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>© <span data-current-year>2026</span> Hack Theory. Educational use.</span>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="oauth/callback.html">OAuth Return</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
